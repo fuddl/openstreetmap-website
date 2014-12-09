@@ -144,32 +144,39 @@ small, aside {
 
 /* Rules for icons */
 
-.icon {
-  display:inline-block;
-  vertical-align:top;
-  width:20px;
-  height:20px;
-  background:transparent image-url("sprite.png") no-repeat 0 0;
-  text-indent:-9999px;
-  overflow:hidden;
+@font-face {
+  font-family: 'icons';
+  src: image-url("icons.eot");
+  src: image-url("icons.eot#iefix") format('embedded-opentype'),
+       image-url("icons.woff") format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
-.icon.search      { background-position: 0 0; }
-.icon.donate      { background-position: -20px 0; }
-.icon.zoomin      { background-position: -40px 0; }
-.icon.zoomout     { background-position: -60px 0; }
-.icon.geolocate   { background-position: -80px 0; }
-.active .icon.geolocate   { background-position: -80px -20px; }
-.icon.layers      { background-position: -100px 0; }
-.icon.key         { background-position: -120px 0; }
-.icon.share       { background-position: -140px 0; }
-.icon.clipboard   { background-position: -160px 0; }
-.icon.link        { background-position: -180px 0; }
-.icon.close       { background-position: -200px 0; }
-.icon.close:hover { background-position: -200px -20px; }
-.icon.check       { background-position: -220px 0; }
-.icon.note        { background-position: -240px 0; }
-.icon.query       { background-position: -260px 0; }
+.icon:before {
+  display: inline-block;
+  width: 20px;
+  font-family: 'icons';
+  color: white;
+  text-align: center;
+}
+
+.icon.search:before              { content: '🔎'; color: #999; }
+.icon.donate:before              { content: '❤'; }
+.icon.zoomin:before              { content: '+'; }
+.icon.zoomout:before             { content: '-'; }
+.icon.geolocate:before           { content: '➚'; }
+.active .icon.geolocate:before   { color: #70CD8F; }
+.icon.layers:before              { content: '🎚'; }
+.icon.key:before                 { content: 'ℹ'; }
+.icon.share:before               { content: '➦'; }
+.icon.clipboard:before           { content: '📋'; }
+.icon.link:before                { content: '⛓'; color: #0000FF; }
+.icon.close:before               { content: '×'; color: #CCC; }
+.icon.close:hover:before         { color: #999; }
+.icon.check:before               { content: '✅'; color: #222; }
+.icon.note:before                { content: '💬'; }
+.icon.query:before               { content: '?'; }
 
 /* Rules for links */
 
@@ -222,7 +229,7 @@ table {
 
 /* Rules for the header */
 
-#menu-icon { 
+#menu-icon {
   display: none !important;
   float: right;
   background: image-url("menu-icon.png") no-repeat;
@@ -284,7 +291,7 @@ nav.primary {
     > li {
       border-right: $border;
       float: left;
-      &:last-child { 
+      &:last-child {
         border-right: 0;
       }
       > a:hover { background: lighten($green, 30%); }
@@ -365,12 +372,12 @@ nav.secondary {
     > li {
       border-right: $border;
       float: left;
-      &:last-child { 
+      &:last-child {
         border-right: 0;
 
         > a {
           border-radius: 0 $border-radius $border-radius 0;
-        } 
+        }
       }
       &:first-child > a { border-radius: $border-radius 0 0 $border-radius; }
       &:hover a { background: lighten($darkgrey, 30%); }
@@ -554,7 +561,7 @@ nav.secondary {
 
 .leaflet-control .control-button {
   display: block;
-  height: 40px;
+  line-height: 40px;
   width: 40px;
   background-color: #333;
   background-color: rgba(0,0,0,.6);
@@ -745,7 +752,7 @@ nav.secondary {
       margin-bottom: 8px;
       position: relative;
       transition: border-color 0.08s ease-in;
-      
+
       label {
         position: absolute;
         top: 0;
@@ -877,10 +884,10 @@ nav.secondary {
   padding: $lineheight/2 $lineheight;
   // background: $offwhite;
   // border-bottom: 1px solid #ccc;
-  > .close { 
+  > .close {
     float: right;
     margin-top: 2px;
-    cursor: pointer; 
+    cursor: pointer;
   }
 }
 
@@ -1248,7 +1255,7 @@ header .search_form {
 
 .content-heading {
   background: $lightgrey;
-  
+
   h1 { font-size: 22px; }
 }
 
@@ -1837,7 +1844,7 @@ header .search_form {
     padding-top: $lineheight;
     border-top: 1px solid $lightgrey;
   }
-  .horizontal-list .form-row { 
+  .horizontal-list .form-row {
     float: left;
     padding-right: 10px;
   }
@@ -2399,7 +2406,7 @@ input.richtext_title[type="text"] {
 .site-welcome, .site-fixthemap {
   .center {
     text-align: center;
-    .sprite { 
+    .sprite {
       float: none;
       margin: auto;
     }
@@ -2412,7 +2419,7 @@ input.richtext_title[type="text"] {
     float: left;
   }
 
-  .icon-list { 
+  .icon-list {
     padding-bottom: 20px;
     div {
       margin-bottom: 10px;
